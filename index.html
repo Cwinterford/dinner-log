@@ -17,10 +17,23 @@
 <dialog id="authDlg" class="modal"><form id="authForm" class="modalinner"><div class="head"><h2>Administrator sign in</h2><button type="button" class="iconbtn" id="closeAuth">✕</button></div><p class="sub">Sign in with an invited administrator account to manage the book.</p><div class="field"><label>Email address</label><input id="email" type="email" autocomplete="username" required></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" required></div><div class="actions" style="justify-content:space-between"><button type="button" class="btn" id="forgot">Forgot/set password?</button><button class="btn primary">Sign in</button></div><p class="note">Visitors can browse without signing in. Public registration is disabled.</p></form></dialog>
 <dialog id="resetDlg" class="modal"><form id="resetForm" class="modalinner"><h2>Set a new password</h2><div class="field"><label>New password</label><input id="newPassword" type="password" minlength="8" required></div><div class="actions" style="justify-content:flex-end"><button class="btn primary">Update password</button></div></form></dialog>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
-const URL="https://mwloqpxritfvqvmlrnxp.supabase.co", KEY="sb_publishable_I4rRV07optodWpUXbadslg_CSyxChW6";
-const db=window.supabase.createClient(URL,KEY);let recipes=[],plan={},user=null,admin=false,filter="All";
-const $=x=>document.getElementById(x), cats=["All","Beef","Chicken","Lamb","Pork","Turkey","Fish","Seafood","Vegetarian"];
+<script type="module">
+/* Load Supabase as an ES module so the app does not depend on a global CDN variable. */
+const $ = x => document.getElementById(x);
+let createClient;
+try {
+  ({ createClient } = await import("https://esm.sh/@supabase/supabase-js@2"));
+} catch (err) {
+  console.error("Supabase library failed to load:", err);
+  $("status").textContent = "The Supabase library could not load. Check your internet connection or try again shortly.";
+  $("status").classList.add("error");
+  throw err;
+}
+const SUPABASE_URL="https://mwloqpxritfvqvmlrnxp.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_I4rRV07optodWpUXbadslg_CSyxChW6";
+const db=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+let recipes=[],plan={},user=null,admin=false,filter="All";
+const cats=["All","Beef","Chicken","Lamb","Pork","Turkey","Fish","Seafood","Vegetarian"];
 function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function say(s,err=false){$("status").textContent=s;$("status").classList.toggle("error",err)}
 function dayKey(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-")}
