@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#243b32">
+<title>The Dinner Book</title>
+<style>
+:root{--ink:#20342c;--muted:#68766f;--paper:#f7f6f1;--card:#fff;--green:#315b46;--green2:#e7efe8;--line:#e5e7e1;--gold:#d9a441;--shadow:0 8px 28px rgba(30,49,39,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1120px;margin:auto;padding:24px 22px 64px}.hero{background:linear-gradient(120deg,#203d31,#42664e);color:white;border-radius:24px;padding:34px 36px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:270px;height:270px;border:1px solid #ffffff26;border-radius:50%;right:-60px;top:-100px;box-shadow:0 0 0 28px #ffffff0d,0 0 0 58px #ffffff08}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:750;color:#d7e5d8}.hero h1{font:600 clamp(2.2rem,5vw,3.4rem)/1.05 Georgia,serif;margin:10px 0}.hero p{margin:0;color:#e0e9e1;max-width:560px}.hero-row{display:flex;justify-content:space-between;align-items:end;gap:20px;position:relative;z-index:1}.hero-mark{font:italic 1rem Georgia;color:#e4d6b7;white-space:nowrap}.tabs{display:flex;gap:8px;margin:22px 0 18px;flex-wrap:wrap}.tab,.btn,.filter{border:1px solid var(--line);background:white;color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:650;font-size:.9rem}.tab.active,.filter.active{background:var(--green);color:white;border-color:var(--green)}.btn.primary{background:var(--green);color:white;border-color:var(--green)}.btn.subtle{background:var(--green2);border-color:transparent;color:var(--green)}.btn.danger{color:#a33b32}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 14px;flex-wrap:wrap}.toolbar h2,.section-head h2{font:600 1.8rem Georgia,serif;margin:0}.toolbar p,.section-head p{color:var(--muted);margin:3px 0 0;font-size:.92rem}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.filter{padding:8px 13px;font-size:.84rem}.search{width:min(100%,290px);border:1px solid var(--line);border-radius:999px;padding:11px 15px;background:white;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:#75967d;box-shadow:0 0 0 3px #315b4618}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.recipe{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:260px}.recipe-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.pill{background:var(--green2);color:var(--green);font-size:.74rem;font-weight:750;padding:5px 10px;border-radius:999px}.recipe h3{font:600 1.35rem/1.2 Georgia,serif;margin:16px 0 8px}.recipe p{color:var(--muted);font-size:.91rem;margin:0 0 16px}.meta{display:flex;gap:14px;color:var(--muted);font-size:.82rem;margin-top:auto;padding:12px 0}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tag{font-size:.72rem;color:#64716a;background:#f2f3ef;padding:4px 8px;border-radius:6px}.recipe-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.link{color:var(--green);font-weight:750;text-decoration:none;font-size:.9rem}.link:hover{text-decoration:underline}.icon-btn{border:1px solid var(--line);background:white;border-radius:9px;padding:7px 10px;color:var(--muted)}.empty{padding:42px 20px;text-align:center;background:white;border:1px dashed #cdd5cc;border-radius:18px;color:var(--muted)}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);margin-top:16px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.week-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-top:18px}.day{border:1px solid var(--line);border-radius:13px;padding:12px;min-height:150px;background:#fdfdfa}.day strong{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}.day select{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px;background:white;font-size:.82rem}.day-meal{font:600 1rem Georgia,serif;margin-top:10px}.shopping-list{columns:2;column-gap:36px;padding-left:20px}.shopping-list li{break-inside:avoid;margin:5px 0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.82rem;font-weight:700;color:#526158}.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:white;color:var(--ink);width:100%}.field textarea{min-height:90px;resize:vertical}.form-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}.hidden{display:none!important}.note{font-size:.82rem;color:var(--muted);margin-top:12px}.footer{text-align:center;color:#8a938c;font-size:.78rem;margin-top:30px}@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.week-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:560px){.shell{padding:14px 13px 42px}.hero{padding:25px 22px}.hero-row{display:block}.hero-mark{display:block;margin-top:14px}.grid{grid-template-columns:1fr}.week-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.shopping-list{columns:1}.toolbar{align-items:stretch}.search{width:100%}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="hero-row"><div><div class="eyebrow">Your weekly dinner companion</div><h1>The Dinner Book</h1><p>A growing collection of dinners to browse, plan and cook. Find something good for tonight.</p></div><div class="hero-mark">Good food, less guesswork.</div></div>
+  </header>
+  <nav class="tabs" aria-label="Main navigation">
+    <button class="tab active" data-page="recipes">Recipes</button>
+    <button class="tab" data-page="planner">Weekly planner</button>
+    <button class="tab" data-page="shopping">Shopping list</button>
+  </nav>
+
+  <section id="recipesPage">
+    <div class="toolbar"><div><h2>Recipe collection</h2><p id="recipeCount">3 recipes in your book</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><input id="search" class="search" type="search" placeholder="Search recipes…"><button class="btn primary" id="addRecipe">+ Add recipe</button></div></div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="recipeGrid"></div>
+    <p class="note">Your recipes are saved in this browser on this device. Use Export backup to keep a copy or move your collection to another device.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn subtle" id="exportData">Export backup</button><button class="btn subtle" id="importButton">Import backup</button><input id="importFile" type="file" accept="application/json" class="hidden"></div>
+  </section>
+
+  <section id="plannerPage" class="hidden">
+    <div class="section-head"><div><h2>Weekly planner</h2><p>Choose a dinner for each day. Your choices are saved automatically.</p></div><button class="btn subtle" id="clearWeek">Clear week</button></div>
+    <div class="panel"><div class="field" style="max-width:260px"><label for="weekStart">Week beginning</label><input type="date" id="weekStart"></div><div class="week-grid" id="weekGrid"></div></div>
+    <p class="note">Choose a recipe from the dropdown for each day. Add ingredients to your recipes to include them in the shopping list.</p>
+  </section>
+
+  <section id="shoppingPage" class="hidden">
+    <div class="section-head"><div><h2>Shopping list</h2><p>Ingredients from the meals in your weekly plan.</p></div><button class="btn subtle" id="copyShopping">Copy list</button></div>
+    <div class="panel"><div id="shoppingContent"></div></div>
+  </section>
+  <footer class="footer">THE DINNER BOOK · A little more inspiration for every evening</footer>
+</main>
+
+<dialog id="recipeDialog" style="border:0;border-radius:18px;padding:0;width:min(620px,calc(100% - 26px));box-shadow:0 20px 70px #0003">
+  <form id="recipeForm" style="padding:24px">
+    <div class="section-head"><h2 id="dialogTitle" style="font:600 1.7rem Georgia,serif;margin:0">Add a recipe</h2><button type="button" class="icon-btn" id="closeDialog" aria-label="Close">✕</button></div>
+    <input type="hidden" id="recipeId">
+    <div class="form-grid" style="margin-top:20px">
+      <div class="field full"><label for="name">Recipe name *</label><input id="name" required maxlength="90" placeholder="e.g. Sticky honey chicken"></div>
+      <div class="field"><label for="protein">Protein *</label><select id="protein" required><option>Chicken</option><option>Beef</option><option>Lamb</option><option>Pork</option><option>Turkey</option><option>Fish</option><option>Seafood</option><option>Vegetarian</option></select></div>
+      <div class="field"><label for="time">Cooking time</label><input id="time" placeholder="e.g. 35 mins"></div>
+      <div class="field"><label for="serves">Serves</label><input id="serves" placeholder="e.g. 4"></div>
+      <div class="field"><label for="difficulty">Difficulty</label><select id="difficulty"><option>Easy</option><option>Medium</option><option>Advanced</option></select></div>
+      <div class="field full"><label for="description">Description</label><textarea id="description" placeholder="A quick note about the dish…"></textarea></div>
+      <div class="field full"><label for="url">Recipe link</label><input id="url" type="url" placeholder="https://…"></div>
+      <div class="field full"><label for="ingredients">Ingredients (one per line)</label><textarea id="ingredients" placeholder="400g chicken thighs&#10;1 lemon&#10;2 tbsp olive oil"></textarea></div>
+      <div class="field full"><label for="tags">Tags (comma separated)</label><input id="tags" placeholder="Quick, Family favourite"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn" id="cancelDialog">Cancel</button><button class="btn primary" type="submit">Save recipe</button></div>
+  </form>
+</dialog>
+<script>
+const starter=[
+{id:"r1",name:"Lemon & oregano chicken traybake",protein:"Chicken",time:"1 hr 10 mins",serves:"4",difficulty:"Easy",description:"A Mediterranean-style one-tray dinner with chicken thighs, crispy potatoes, shallots, lemon and oregano.",url:"https://www.bbcgoodfood.com/recipes/lemon-oregano-chicken-traybake",ingredients:[],tags:["One tray","Mediterranean"]},
+{id:"r2",name:"Classic chilli con carne",protein:"Beef",time:"1 hr 10 mins",serves:"4",difficulty:"Easy",description:"A hearty beef mince chilli with kidney beans, tomatoes, peppers and warming spices. Great for batch cooking.",url:"https://www.bbcgoodfood.com/recipes/chilli-con-carne-recipe",ingredients:[],tags:["Batch cooking","Freezer friendly"]},
+{id:"r3",name:"Chickpea curry",protein:"Vegetarian",time:"40 mins",serves:"4",difficulty:"Easy",description:"A filling curry with chickpeas, tomatoes, coconut, spinach and aromatic spices.",url:"https://www.bbcgoodfood.com/recipes/kadala-curry",ingredients:[],tags:["Vegetarian","Freezer friendly"]}
+];
+const STORE="dinnerBookRecipesV1", PLAN="dinnerBookPlanV1";
+let recipes=load(STORE,starter), plan=load(PLAN,{});
+let activeFilter="All";
+const $=id=>document.getElementById(id);
+function load(key,fallback){try{const v=JSON.parse(localStorage.getItem(key));return v??fallback}catch{return fallback}}
+function save(){localStorage.setItem(STORE,JSON.stringify(recipes));localStorage.setItem(PLAN,JSON.stringify(plan))}
+function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function safeUrl(u){try{const x=new URL(u);return ["http:","https:"].includes(x.protocol)?x.href:"#"}catch{return "#"}}
+const categories=["All","Beef","Chicken","Lamb","Pork","Turkey","Fish","Seafood","Vegetarian"];
+function renderFilters(){$("filters").innerHTML=categories.map(c=>`<button class="filter ${activeFilter===c?"active":""}" data-filter="${c}">${c}</button>`).join("");document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{activeFilter=b.dataset.filter;render()})}
+function renderRecipes(){
+ const q=$("search").value.toLowerCase().trim();
+ const items=recipes.filter(r=>(activeFilter==="All"||r.protein===activeFilter)&&[r.name,r.description,r.protein,...(r.tags||[])].join(" ").toLowerCase().includes(q));
+ $("recipeCount").textContent=`${recipes.length} ${recipes.length===1?"recipe":"recipes"} in your book · ${items.length} shown`;
+ $("recipeGrid").innerHTML=items.length?items.map(r=>`<article class="recipe"><div class="recipe-top"><span class="pill">${esc(r.protein)}</span><span style="font-size:.78rem;color:var(--muted)">${esc(r.difficulty||"Easy")}</span></div><h3>${esc(r.name)}</h3><p>${esc(r.description||"No description added yet.")}</p><div class="meta"><span>◷ ${esc(r.time||"Time not set")}</span><span>♧ Serves ${esc(r.serves||"—")}</span></div><div class="tags">${(r.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="recipe-actions">${r.url?`<a class="link" href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener">View recipe ↗</a>`:`<span class="note">No recipe link added</span>`}<span style="flex:1"></span><button class="icon-btn" data-edit="${r.id}">Edit</button><button class="icon-btn" data-delete="${r.id}" aria-label="Delete recipe">Delete</button></div></article>`).join(""):`<div class="empty" style="grid-column:1/-1">No recipes match that filter. Try another protein or add a recipe.</div>`;
+ document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>openEdit(b.dataset.edit));
+ document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>deleteRecipe(b.dataset.delete));
+}
+function render(){renderFilters();renderRecipes();renderPlanner();renderShopping()}
+function openAdd(){$("recipeForm").reset();$("recipeId").value="";$("dialogTitle").textContent="Add a recipe";$("recipeDialog").showModal()}
+function openEdit(id){const r=recipes.find(x=>x.id===id);if(!r)return;$("recipeForm").reset();$("dialogTitle").textContent="Edit recipe";$("recipeId").value=r.id;for(const k of ["name","protein","time","serves","difficulty","description","url"])$(k).value=r[k]||"";$("ingredients").value=(r.ingredients||[]).join("\n");$("tags").value=(r.tags||[]).join(", ");$("recipeDialog").showModal()}
+function deleteRecipe(id){const r=recipes.find(x=>x.id===id);if(!r||!confirm(`Delete "${r.name}" from your recipe book?`))return;recipes=recipes.filter(x=>x.id!==id);Object.keys(plan).forEach(d=>{if(plan[d]===id)delete plan[d]});save();render()}
+$("recipeForm").onsubmit=e=>{e.preventDefault();const id=$("recipeId").value||"r"+Date.now();const obj={id,name:$("name").value.trim(),protein:$("protein").value,time:$("time").value.trim(),serves:$("serves").value.trim(),difficulty:$("difficulty").value,description:$("description").value.trim(),url:$("url").value.trim(),ingredients:$("ingredients").value.split("\n").map(x=>x.trim()).filter(Boolean),tags:$("tags").value.split(",").map(x=>x.trim()).filter(Boolean)};const i=recipes.findIndex(x=>x.id===id);if(i>=0)recipes[i]=obj;else recipes.unshift(obj);save();$("recipeDialog").close();render()};
+$("addRecipe").onclick=openAdd;$("closeDialog").onclick=$("cancelDialog").onclick=()=>$("recipeDialog").close();$("search").oninput=renderRecipes;
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===b));["recipes","planner","shopping"].forEach(p=>$(p+"Page").classList.toggle("hidden",p!==b.dataset.page));if(b.dataset.page==="shopping")renderShopping()});
+function dateKey(d){return d.toISOString().slice(0,10)}
+function getMonday(v){const d=new Date(v+"T12:00:00");const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return d}
+function renderPlanner(){const input=$("weekStart");if(!input.value){const now=new Date();input.value=dateKey(getMonday(dateKey(now)))}const start=getMonday(input.value);const days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];$("weekGrid").innerHTML=days.map((day,i)=>{const d=new Date(start);d.setDate(start.getDate()+i);const key=dateKey(d);const opts=recipes.map(r=>`<option value="${r.id}" ${plan[key]===r.id?"selected":""}>${esc(r.name)}</option>`).join("");return `<div class="day"><strong>${day}<br><span style="font-weight:500;letter-spacing:0">${d.toLocaleDateString(undefined,{day:"numeric",month:"short"})}</span></strong><select data-day="${key}"><option value="">Choose dinner…</option>${opts}</select>${plan[key]?`<div class="day-meal">${esc((recipes.find(r=>r.id===plan[key])||{}).name||"")}</div>`:""}</div>`}).join("");document.querySelectorAll("[data-day]").forEach(s=>s.onchange=()=>{if(s.value)plan[s.dataset.day]=s.value;else delete plan[s.dataset.day];save();renderPlanner();renderShopping()})}
+$("weekStart").onchange=renderPlanner;
+$("clearWeek").onclick=()=>{if(confirm("Clear all dinners from this week?")){const start=getMonday($("weekStart").value);for(let i=0;i<7;i++){const d=new Date(start);d.setDate(start.getDate()+i);delete plan[dateKey(d)]}save();renderPlanner();renderShopping()}};
+function plannedRecipes(){const start=getMonday($("weekStart").value||dateKey(new Date()));const out=[];for(let i=0;i<7;i++){const d=new Date(start);d.setDate(start.getDate()+i);const r=recipes.find(x=>x.id===plan[dateKey(d)]);if(r)out.push(r)}return out}
+function renderShopping(){const list=plannedRecipes().flatMap(r=>r.ingredients||[]);$("shoppingContent").innerHTML=list.length?`<p class="note">${list.length} ingredient lines from this week's planned dinners.</p><ul class="shopping-list">${list.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<div class="empty">Your shopping list is empty for now.<br>Plan some dinners and add ingredients to those recipes to build your list.</div>`}
+$("copyShopping").onclick=()=>{const list=plannedRecipes().flatMap(r=>r.ingredients||[]);const text=list.length?list.map(x=>"• "+x).join("\n"):"No ingredients added yet.";navigator.clipboard?.writeText(text).then(()=>alert("Shopping list copied.")).catch(()=>alert(text))};
+$("exportData").onclick=()=>{const blob=new Blob([JSON.stringify({recipes,plan},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="dinner-book-backup.json";a.click();URL.revokeObjectURL(a.href)};
+$("importButton").onclick=()=>$("importFile").click();
+$("importFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.recipes))throw Error();if(confirm("Import this backup? It will replace the recipes and planner currently saved in this browser.")){recipes=data.recipes;plan=data.plan||{};save();render();alert("Backup imported.")}}catch{alert("That file doesn't look like a Dinner Book backup.")}e.target.value=""};
+render();
+</script>
+</body>
+</html>
